@@ -1,7 +1,4 @@
 class BoatsController < ApplicationController
-  belongs_to :company
-  has_many :jobs
-
 
     def index
       @all_boats = Boat.all
@@ -9,15 +6,23 @@ class BoatsController < ApplicationController
     end
 
     def new
-      # nothing to see here.
+      @boat = Boat.new
     end
 
     def create
       @boat = Boat.create(
       name: params[:boat][:name],
       containers: params[:boat][:containers],
-      location: params[:boat][:location]
+      location: params[:boat][:location],
+      company_id: params[:boat][:company_id],
+      avatar: params [:boat][:avatar]
       )
+
+      if @new_boat
+        redirect_to url_for(:controller => :boats, :action => :index)
+      else
+        redirect_to url_for(:controller => :boats, :action => :new)
+      end
 
       # respond_to invisible/present on every controller action
       respond_to do |format|
@@ -27,10 +32,12 @@ class BoatsController < ApplicationController
         # If request is normal Rails way
         format.html { redirect_to boats_path }
       end
-
     end
 
     def show
+      @boat = Boat.find(params[:id])
+
+      @boat_company = @boat.company.email
     end
 
     def edit
@@ -43,7 +50,9 @@ class BoatsController < ApplicationController
       @boat.update({
         name: params[:boat][:name],
         containers: params[:boat][:containers],
-        location: params[:boat][:location]
+        location: params[:boat][:location],
+        company_id: params[:boat][:company_id],
+        avatar: params [:boat][:avatar]
         })
 
       if (@boat)
@@ -57,7 +66,6 @@ class BoatsController < ApplicationController
       Boat.delete(params[:id])
       redirect_to url_for(:controller => :boats, :action => :index)
     end
-
 
 
 

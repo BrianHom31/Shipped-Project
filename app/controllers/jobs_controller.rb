@@ -1,6 +1,4 @@
 class JobsController < ApplicationController
-  belongs_to :company
-  has_many :jobs
 
   def index
     @all_jobs = Job.all
@@ -8,7 +6,7 @@ class JobsController < ApplicationController
   end
 
   def new
-    # nothing to see here.
+    @job = Job.new
   end
 
   def create
@@ -20,6 +18,12 @@ class JobsController < ApplicationController
     cost: params[:job][:cost],
     amount_containers: params[:job][:amount_containers]
     )
+
+    if @new_job
+      redirect_to url_for(:controller => :jobs, :action => :index)
+    else
+      redirect_to url_for(:controller => :jobs, :action => :new)
+    end
 
     # respond_to invisible/present on every controller action
     respond_to do |format|

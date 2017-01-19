@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>ShippedProject</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,21 +12,18 @@
 
   <body>
 
+    <nav>
+        <% if  (company_signed_in?)%>
+              <%= link_to "Sign out", { :action => "destroy",  :controller=> "devise/sessions"}, method: :delete %>
+        <% else %>
+              <%= link_to "Sign In", new_company_session_path %>
+              <%= link_to "Sign Up", new_company_registration_path %>
+        <% end %>
+    </nav>
+
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-
-    <nav>
-    <% if (user_signed_in?) %>
-    	<%= link_to "Sign Out" , {:action=>"destroy", :controller=>"devise/sessions"}, method: :delete %>
-
-    	<% else%>
-    	<h3 class="pull-right"><%= link_to "Sign In", new_user_session_path %></h3>
-    	<h3 class="pull-right"><%= link_to "Sign Up", new_user_registration_path %></h3>
-    <% end %>
-</nav>
-
-
 
     <%= yield %>
   </body>

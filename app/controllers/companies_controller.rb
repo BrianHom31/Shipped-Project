@@ -1,6 +1,4 @@
 class CompaniesController < ApplicationController
-  has_many :boats
-  has_many :jobs
 
   def index
     @all_companies = Company.all
@@ -8,11 +6,14 @@ class CompaniesController < ApplicationController
   end
 
   def new
-    # nothing to see here.
+    @message = "New Company"
   end
 
   def create
-    @company = Company.create(content: params["company"]["content"])
+    @company = Company.create(
+    name: params["company"]["name"],
+    address: params["company"]["address"]
+    )
 
     # respond_to invisible/present on every controller action
     respond_to do |format|
@@ -27,9 +28,11 @@ class CompaniesController < ApplicationController
 
 
 
-
   before_action :authenticate_company!
   def show
+    @company = Company.find(params[:id])
+    # company has many boats
+    @company_boats = @company.boats
   end
 
 
@@ -38,9 +41,14 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
   end
 
+
+
   def update
     @company = Company.find(params[:id])
-    @company.update({content: params[:company][:content]})
+    @company.update({
+      name: params["company"]["name"],
+      address: params["company"]["address"]
+      })
 
     if (@company)
       redirect_to url_for(:controller => :companies, :action => :index)
@@ -48,6 +56,8 @@ class CompaniesController < ApplicationController
       redirect_to url_for(:controller => :companies, :action => :edit)
     end
   end
+
+
 
   def destroy
     Company.delete(params[:id])
