@@ -10,7 +10,7 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job = Job.create(
+    @new_job = Job.create(
     name: params[:job][:name],
     description: params[:job][:description],
     origin: params[:job][:description],
@@ -25,18 +25,20 @@ class JobsController < ApplicationController
       redirect_to url_for(:controller => :jobs, :action => :new)
     end
 
-    # respond_to invisible/present on every controller action
-    respond_to do |format|
-      # If request is JS (AJAX)
-      format.js
-
-      # If request is normal Rails way
-      format.html { redirect_to jobs_path }
-    end
+    # # respond_to invisible/present on every controller action
+    # respond_to do |format|
+    #   # If request is JS (AJAX)
+    #   format.js
+    #
+    #   # If request is normal Rails way
+    #   format.html { redirect_to jobs_path }
+    # end
 
   end
 
   def show
+    @job = Job.find(params[:id])
+    @all_jobs = Job.all
   end
 
   def edit
@@ -64,7 +66,7 @@ class JobsController < ApplicationController
 
   def destroy
     Job.delete(params[:id])
-    redirect_to url_for(:controller => :posts, :action => :index)
+    redirect_to url_for(:controller => :boats, :action => :show)
   end
 
 end

@@ -1,1 +1,20 @@
 <h1>index page for boats</h1>
+
+
+<h4><%= link_to ("Create New Boat"), new_boat_path %></h4>
+<hr>
+
+<h4><% @all_boats.each do |boat| %>
+  <%= boat.id %>.
+  Boat Name: <%= boat.name %> <br>
+  Number of Containers: <%= boat.containers %> <br>
+  Location: <%= boat.location %>
+
+  <br>
+
+  || <%= link_to ("Boat show page"), boat_path(boat.id) %> ||
+  <%= link_to 'Delete boat',  { action: :destroy, id: boat.id }, method: :delete %> ||
+  <hr>
+
+<% end %>
+</h4>

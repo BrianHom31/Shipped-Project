@@ -1,1 +1,29 @@
 <h1>edit page for jobs</h1>
+<%= form_for Job.new do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %> <br>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %> <br>
+
+
+  <%= f.label :origin %>
+  <%= f.text_field :origin %> <br>
+
+  <%= f.label :destination %>
+  <%= f.text_field :destination %> <br>
+
+  <%= f.label :cost %>
+  <%= f.number_field :cost %> <br>
+
+  <%= f.label :amount_containers %>
+  <%= f.number_field :amount_containers %> <br>
+
+  <%= f.label :boat %><br>
+  <%= collection_select :boats_jobs, :boat_id, Boat.all, :id, :name %><br>
+
+
+
+  <%= f.submit %>
+<% end %>

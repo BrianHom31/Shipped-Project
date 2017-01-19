@@ -1,1 +1,22 @@
 <h1>edit page for boats</h1>
+
+
+<h1>Edit boat</h1>
+
+<%= form_for @boat do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %> <br><br>
+
+  <%= f.label :containers %>:
+  <%= f.text_field :containers %> <br><br>
+
+	<%= f.label :location %>:
+	<%= f.text_field :location %> <br><br>
+
+  <%= f.label :user %>: <br>
+  <%= f.collection_select :user_id, User.all, :id, :username %>
+
+  <br><br>
+
+  <%= f.submit %>
+<% end %>

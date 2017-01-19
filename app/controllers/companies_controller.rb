@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
 
   def index
     @all_companies = Company.all
-    @company = Company.new
+    @company_new = Company.new
   end
 
   def new
@@ -10,9 +10,11 @@ class CompaniesController < ApplicationController
   end
 
   def create
+    puts params[:company]
+
     @company = Company.create(
-    name: params["company"]["name"],
-    address: params["company"]["address"]
+    name: params[:company][:name],
+    address: params[:company][:address]
     )
 
     # respond_to invisible/present on every controller action
@@ -46,8 +48,8 @@ class CompaniesController < ApplicationController
   def update
     @company = Company.find(params[:id])
     @company.update({
-      name: params["company"]["name"],
-      address: params["company"]["address"]
+      name: params[:company][:name],
+      address: params[:company][:address]
       })
 
     if (@company)

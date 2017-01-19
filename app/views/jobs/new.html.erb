@@ -1,1 +1,31 @@
 <h1>new page for jobs</h1>
+
+
+<%= form_for Job.new do |f| %>
+
+  <%= f.label :name %>:<br>
+  <%= f.text_field :name %> <br>
+
+  <%= f.label :description %><br>
+  <%= f.text_field :description %> <br>
+
+
+  <%= f.label "Origin location" %><br>
+  <%= f.select :origin, ["Bermuda", "Dakar", "Miami", "New York City", "Panama", "Trinidad"], prompt: :select %><br><br>
+
+  <%= f.label "Destination location" %><br>
+  <%= f.select :destination, ["Bermuda", "Dakar", "Miami", "New York City", "Panama", "Trinidad"], prompt: :select %><br><br>
+
+  <%= f.label :cost %><br>
+  <%= f.number_field :cost %> <br>
+
+  <%= f.label :amount_containers %><br>
+  <%= f.number_field :amount_containers %> <br><br>
+
+  <%= f.label "Boat Name" %><br>
+  <%= collection_select :boats_jobs, :boat_id, Boat.all, :id, :name %><br><br>
+
+
+
+  <%= f.submit %>
+<% end %>

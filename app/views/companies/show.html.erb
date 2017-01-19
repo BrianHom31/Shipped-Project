@@ -1,21 +1,37 @@
-<h1>show page for company</h1>
+<!-- <h1>show page for company</h1> -->
+<h1><%= @company.name %>'s Profile</h1>
 
-<%= @company.email %>
-<br>
+<h4><% @company.id %>
+Name: <%= @company.name %><br>
+Address: <%= @company.address %><br>
+Email: <%= @company.email %>
+<br></h4>
 
 <!-- this is where image tage will be  -->
 	<hr>
 
-	<%= link_to "create company", new_company_path %> <br>
+	<%= link_to "Create Boat", new_boat_path %> <br>
 
 	<hr>
 	<% @company_boats.each do |boat| %>
 	  <%= boat.id %>. <br>
-	  <%= boat.name %>.<br>
-	  <%= boat.container %>.<br>
-	  <%= boat.location %>.<br>
+	  Name: <%= boat.name %>.<br>
+	  Containers: <%= boat.container %>.<br>
+	  Location: <%= boat.location %>.<br>
 
 <!-- this is where image tage will be  -->
 
 	  <br><br>
 	<% end %>
+
+
+	<hr>
+
+	<h4><div>Boats by this <%= @company.name %>:</div><br>
+
+	<% @company_boats.each do |boat| %>
+	  <%= boat.id %>.
+	  <%= link_to (boat.name), boat_path(boat.id) %>
+	  <br><br>
+	<% end %>
+	</h4>

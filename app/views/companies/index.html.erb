@@ -1,1 +1,16 @@
 <h1>index page for companies</h1>
+
+
+<h4><% @all_companies.each do |company| %>
+  <%= company.id %>.
+  Company Name: <%= company.name %>,<br>
+  Address: <%= company.address %><br>
+  Email: <%= company.email %>
+
+  <br><br>
+
+  <%= link_to ("Company show page"), company_path(company.id) %> ||
+  <%= link_to 'Delete company',  { action: :destroy, id: company.id }, method: :delete %>
+  <hr><br>
+
+<% end %></h4>
