@@ -1,1 +1,23 @@
-<h1>show page for jobs</h1>
+
+<h1>JOB INFO</h1>
+<hr>
+
+Name: <%= @job.name %><br>
+Description: <%= @job.description%><br>
+Origin: <%= @job.origin%><br>
+Destination: <%= @job.destination%><br>
+Cost: <%= @job.cost%><br>
+Containers Needed: <%= @job.amount_containers%><br>
+
+
+<hr>
+
+<div class="">
+  <h1>All Boats Assigned To This Job:</h1>
+</div>
+<br>
+<% @job.boats.each do |boat| %>
+Name: <%= boat.name %>
+<hr>
+<% end %>
+<%= @job_assigned %>

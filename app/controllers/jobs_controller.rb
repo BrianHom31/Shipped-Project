@@ -13,8 +13,8 @@ class JobsController < ApplicationController
     @new_job = Job.create(
     name: params[:job][:name],
     description: params[:job][:description],
-    origin: params[:job][:description],
-    destination: params[:job][:description],
+    origin: params[:job][:origin],
+    destination: params[:job][:destination],
     cost: params[:job][:cost],
     amount_containers: params[:job][:amount_containers]
     )
@@ -39,6 +39,7 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @all_jobs = Job.all
+    @boats_assigned = @job.boats
   end
 
   def edit
@@ -51,8 +52,8 @@ class JobsController < ApplicationController
     @job.update({
       name: params[:job][:name],
       description: params[:job][:description],
-      origin: params[:job][:description],
-      destination: params[:job][:description],
+      origin: params[:job][:origin],
+      destination: params[:job][:destination],
       cost: params[:job][:cost],
       amount_containers: params[:job][:amount_containers]
       })

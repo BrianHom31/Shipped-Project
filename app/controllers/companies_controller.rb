@@ -35,6 +35,7 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     # company has many boats
     @company_boats = @company.boats
+    @boat = Boat.new
   end
 
 

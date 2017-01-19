@@ -4,17 +4,17 @@
 <h1>Edit boat</h1>
 
 <%= form_for @boat do |f| %>
-  <%= f.label :name %>:
+  <%= f.label :name %>:<br>
   <%= f.text_field :name %> <br><br>
 
-  <%= f.label :containers %>:
+  <%= f.label :containers %>:<br>
   <%= f.text_field :containers %> <br><br>
 
-	<%= f.label :location %>:
+	<%= f.label :location %>:<br>
 	<%= f.text_field :location %> <br><br>
 
   <%= f.label :user %>: <br>
-  <%= f.collection_select :user_id, User.all, :id, :username %>
+  <%= f.collection_select :company_id, Company.all, :id, :name %>
 
   <br><br>
 

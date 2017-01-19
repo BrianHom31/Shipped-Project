@@ -8,11 +8,11 @@
   <%= f.text_field :description %> <br>
 
 
-  <%= f.label :origin %>
-  <%= f.text_field :origin %> <br>
+  <%= f.label "Origin location" %><br>
+  <%= f.select :origin, ["Bermuda", "Dakar", "Miami", "New York City", "Panama", "Trinidad"], prompt: :select %><br><br>
 
-  <%= f.label :destination %>
-  <%= f.text_field :destination %> <br>
+  <%= f.label "Destination location" %><br>
+  <%= f.select :destination, ["Bermuda", "Dakar", "Miami", "New York City", "Panama", "Trinidad"], prompt: :select %><br><br>
 
   <%= f.label :cost %>
   <%= f.number_field :cost %> <br>
