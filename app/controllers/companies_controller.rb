@@ -40,8 +40,8 @@ class CompaniesController < ApplicationController
 
 
   def edit
-    @message = "This is the form to edit an existing company."
-    @company = Company.find(params[:id])
+    # @message = "This is the form to edit an existing company."
+    # @company = Company.find(params[:id])
   end
 
 

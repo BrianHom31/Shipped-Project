@@ -14,6 +14,7 @@
   <%= f.label :company %><br>
   <%= f.collection_select :company_id, Company.all, :id, :email %><br>
 
+  <%= f.file_field :avatar %>
   <br><br>
 
   <%= f.submit "Submit New Boat"%>

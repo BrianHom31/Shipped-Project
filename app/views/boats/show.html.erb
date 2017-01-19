@@ -3,16 +3,15 @@
 <h1><%= @boat.company.name %>'s Boats</h1>
 
 
-<h3>[ Name of Boat ]</h3>
-<h4><%= @boat.id %>.
-<%= @boat.name %></h4>
+  <p><b>Boat Name:</b> <%= @boat.name %></p>
+	<p><b># of Containers:</b> <%= @boat.containers %></p>
+	<p><b>Location:</b> <%= @boat.location %></p>
+	<p><b>Boat Owner:</b> <%= @boat.company.name %></p>
 
-<h3>[ Number of containers ]</h3>
-<h4><%= @boat.containers %></h4>
-
-<br>
-
-<h4>[ From ]:</h4>
-<h4><%= @boat.company.name %></h4>
-
-<hr>
+  <% if @boat.company == current_company %>
+		<%= link_to "Edit Boat", edit_boat_path(@boat) %>
+		<%= link_to "Delete Boat", @boat, method: :delete %>
+		<hr>
+	<% end %>
+  <%= image_tag @boat.avatar.url(:thumb) %>
+  <hr>

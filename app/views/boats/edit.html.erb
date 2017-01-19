@@ -10,8 +10,8 @@
   <%= f.label :containers %>:<br>
   <%= f.text_field :containers %> <br><br>
 
-	<%= f.label :location %>:<br>
-	<%= f.text_field :location %> <br><br>
+  <%= f.label "current location" %><br>
+  <%= f.select :location, ["Bermuda", "Dakar", "Miami", "New York City", "Panama", "Trinidad"], prompt: :select %><br><br>
 
   <%= f.label :user %>: <br>
   <%= f.collection_select :company_id, Company.all, :id, :name %>

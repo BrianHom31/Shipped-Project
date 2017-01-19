@@ -12,9 +12,12 @@ Member Since: <%= @company.created_at.strftime(" %B %d, %Y")%>
 <%= link_to "[Edit My Account]", edit_company_path(@company) %>
 <hr>
 
-<!-- this is where image tage will be  -->
+<%= link_to "Create Boat", new_boat_path %> <br>
 
-	<%= link_to "Create Boat", new_boat_path %> <br>
+	<!-- this is where image tage will be  -->
+	<%= image_tag @company.avatar.url(:thumb) %>
+
+
 
 	<hr>
 
@@ -32,6 +35,7 @@ Member Since: <%= @company.created_at.strftime(" %B %d, %Y")%>
 		<p><b># of Containers:</b> <%= boat.containers %></p>
 		<p><b>Current Location:</b> <%= boat.location %></p>
 		<p><b>Boat Owner:</b> <%= boat.company.name %></p>
+		<%= image_tag boat.avatar.url(:thumb) %>
 
 		<br>
 			<%= link_to "Show Details", boat_path(boat) %>

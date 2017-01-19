@@ -14,8 +14,8 @@ class BoatsController < ApplicationController
       name: params[:boat][:name],
       containers: params[:boat][:containers],
       location: params[:boat][:location],
-      company_id: params[:boat][:company_id]
-      # avatar: params [:boat][:avatar]
+      company_id: params[:boat][:company_id],
+      avatar: params[:boat][:avatar]
       )
       #
       if @new_boat
@@ -51,8 +51,8 @@ class BoatsController < ApplicationController
         name: params[:boat][:name],
         containers: params[:boat][:containers],
         location: params[:boat][:location],
-        company_id: params[:boat][:company_id]
-        # avatar: params [:boat][:avatar]
+        company_id: params[:boat][:company_id],
+        avatar: params[:boat][:avatar]
         })
 
       if (@boat)

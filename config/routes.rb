@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :companies
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
   post "/companies"         =>     "companies#create"
 
   get "/companies/:id"      =>     "companies#show", as: "company"
-  get "/companies/:id/edit" =>     "companies#edit", as: "edit_company"
+  get "/companies/edit" =>     "companies#edit", as: "edit_company"
   put "/companies/:id"      =>     "companies#update"
   patch  "/companies/:id"   =>     "companies#update"
   delete "/companies/:id"   =>     "companies#destroy"

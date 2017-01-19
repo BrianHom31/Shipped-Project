@@ -18,6 +18,8 @@ class JobsController < ApplicationController
     cost: params[:job][:cost],
     amount_containers: params[:job][:amount_containers]
     )
+    @new_job.boats << Boat.find(params[:boats_jobs][:boat_id])
+
 
     if @new_job
       redirect_to url_for(:controller => :jobs, :action => :index)
@@ -25,20 +27,20 @@ class JobsController < ApplicationController
       redirect_to url_for(:controller => :jobs, :action => :new)
     end
 
-    # # respond_to invisible/present on every controller action
-    # respond_to do |format|
-    #   # If request is JS (AJAX)
-    #   format.js
-    #
-    #   # If request is normal Rails way
-    #   format.html { redirect_to jobs_path }
-    # end
+    # respond_to invisible/present on every controller action
+    respond_to do |format|
+      # If request is JS (AJAX)
+      format.js
+
+      # If request is normal Rails way
+      format.html { redirect_to jobs_path }
+    end
 
   end
 
   def show
+    # @all_jobs = Job.all
     @job = Job.find(params[:id])
-    @all_jobs = Job.all
     @boats_assigned = @job.boats
   end
 
