@@ -1,16 +1,19 @@
-<h1>index page for companies</h1>
+<h1>List of All Companies</h1>
 
 
 <h4><% @all_companies.each do |company| %>
   <%= company.id %>.
   Company Name: <%= company.name %>,<br>
   Address: <%= company.address %><br>
-  Email: <%= company.email %>
+  Email: <%= company.email %><br>
+  Member Since: <%= company.created_at.strftime(" %B %d, %Y")%>
 
   <br><br>
 
-  <%= link_to ("Company show page"), company_path(company.id) %> ||
-  <%= link_to 'Delete company',  { action: :destroy, id: company.id }, method: :delete %>
+<div class="links">
+  ||<%= link_to ("Company show page"), company_path(company.id) %>||
+  <%= link_to 'Delete company',  { action: :destroy, id: company.id }, method: :delete %>||
   <hr><br>
+</div>
 
 <% end %></h4>

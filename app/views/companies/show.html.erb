@@ -1,33 +1,35 @@
-<!-- <h1>show page for company</h1> -->
+	<h3><div class="links">
+		<div class="pull-left">
+			<%= link_to "[ Edit My Account ]", edit_company_path(@company) %>
+		</div>
+
+		<div class="pull-right">
+		<%= link_to "[ Create Boat ]", new_boat_path %> <br>
+		</div>
+	</div></h3>
+<hr>
+
+
+
 <h1><%= @company.name %>'s Profile</h1>
 
 <h4><% @company.id %>
-Name: <%= @company.name %><br>
+Company Name: <%= @company.name %><br>
 Address: <%= @company.address %><br>
 Email: <%= @company.email %><br>
 Member Since: <%= @company.created_at.strftime(" %B %d, %Y")%>
 </h4>
 
 <br>
-<%= link_to "[Edit My Account]", edit_company_path(@company) %>
+
+<div class="company-photo">
+	<%= image_tag @company.avatar.url(:thumb) %>
+</div>
+
 <hr>
 
-<%= link_to "Create Boat", new_boat_path %> <br>
 
-	<!-- this is where image tage will be  -->
-	<%= image_tag @company.avatar.url(:thumb) %>
-
-
-
-	<hr>
-
-	<h4><div>Boats Needed by <%= @company.name %>:</div></h4>
-
-
-
-
-
-
+<h4><div>Boats Needed by <%= @company.name %>:</div></h4>
 
 
 	<% @company.boats.each do |boat| %>
@@ -35,16 +37,24 @@ Member Since: <%= @company.created_at.strftime(" %B %d, %Y")%>
 		<p><b># of Containers:</b> <%= boat.containers %></p>
 		<p><b>Current Location:</b> <%= boat.location %></p>
 		<p><b>Boat Owner:</b> <%= boat.company.name %></p>
-		<%= image_tag boat.avatar.url(:thumb) %>
+
+
+
+		<div class="boat-photo">
+			<%= image_tag boat.avatar.url(:thumb) %>
+		</div>
 
 		<br>
-			<%= link_to "Show Details", boat_path(boat) %>
+
+		<div class="links">
+				<%= link_to "Show Details", boat_path(boat) %>
 		<!-- User can only edit / delete boats on their own profile page -->
-		<% if @company == current_company %>
+			<% if @company == current_company %>
+				<%= link_to "Edit Boat", edit_boat_path(boat) %>
+				<%= link_to "Delete Boat", boat, method: :delete %>
+		</div>
 
-			<%= link_to "Edit Boat", edit_boat_path(boat) %>
+<hr>
 
-			<%= link_to "Delete Boat", boat, method: :delete %>
-			<hr>
 		<% end %>
 	<% end %>

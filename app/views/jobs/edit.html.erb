@@ -1,28 +1,35 @@
-<h1>edit page for jobs</h1>
-<%= form_for Job.new do |f| %>
+<h1>Edit Your Current Jobs</h1>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %> <br>
+<%= form_for @job do |f| %>
+
+  <%= f.label :name %>:
+  <%= f.text_field :name %> <br><br>
 
   <%= f.label :description %>
-  <%= f.text_field :description %> <br>
+  <%= f.text_field :description %> <br><br>
 
 
-  <%= f.label "Origin location" %><br>
-  <%= f.select :origin, ["Bermuda", "Dakar", "Miami", "New York City", "Panama", "Trinidad"], prompt: :select %><br><br>
+  <%= f.label "Origin location" %>:
+  <%= f.select :origin, ["Bermuda", "India", "Miami", "New York City", "Panama", "Trinidad", "Hong Kong", "Thailand", "London", "Australia", "Fiji"], prompt: :select %><br><br>
 
-  <%= f.label "Destination location" %><br>
-  <%= f.select :destination, ["Bermuda", "Dakar", "Miami", "New York City", "Panama", "Trinidad"], prompt: :select %><br><br>
+  <%= f.label "Destination location" %>:
+  <%= f.select :destination, ["Bermuda", "India", "Miami", "New York City", "Panama", "Trinidad", "Hong Kong", "Thailand", "London", "Australia", "Fiji"], prompt: :select %><br><br>
 
-  <%= f.label :cost %>
-  <%= f.number_field :cost %> <br>
+  <%= f.label :cost %>:
+  <%= f.number_field :cost %> <br><br>
 
-  <%= f.label :amount_containers %>
-  <%= f.number_field :amount_containers %> <br>
+  <%= f.label :amount_containers %>:
+  <%= f.number_field :amount_containers %> <br><br>
 
-  <%= f.label :boat %><br>
-  <%= collection_select :boats_jobs, :boat_id, Boat.all, :id, :name %><br>
+  <!-- <%= f.label :boat %>:
+  <%= collection_select :boats_jobs, :boat_id, Boat.all, :id, :name %><br><br> -->
 
+
+  <% @boats_arr.each do |boat| %>
+    <%= check_box_tag "boat[boat_ids][]", boat.id %>
+    <%= f.label boat.name %>
+    <br>
+  <% end %>
 
 
   <%= f.submit %>

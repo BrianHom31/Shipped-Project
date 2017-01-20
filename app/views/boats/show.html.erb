@@ -8,10 +8,12 @@
 	<p><b>Location:</b> <%= @boat.location %></p>
 	<p><b>Boat Owner:</b> <%= @boat.company.name %></p>
 
+<div class="links">
+  <%= image_tag @boat.avatar.url(:thumb) %>
   <% if @boat.company == current_company %>
 		<%= link_to "Edit Boat", edit_boat_path(@boat) %>
 		<%= link_to "Delete Boat", @boat, method: :delete %>
-		<hr>
 	<% end %>
-  <%= image_tag @boat.avatar.url(:thumb) %>
-  <hr>
+</div>
+
+<hr>

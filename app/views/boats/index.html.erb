@@ -1,20 +1,26 @@
-<h1>index page for boats</h1>
+<h1>List of All Boats</h1>
 
-
-<h4><%= link_to ("Create New Boat"), new_boat_path %></h4>
+<div class="links">
+  <h4><%= link_to ("Create New Boat"), new_boat_path %></h4>
+</div>
 <hr>
 
 <h4><% @all_boats.each do |boat| %>
   <%= boat.id %>.
   Boat Name: <%= boat.name %> <br>
   Number of Containers: <%= boat.containers %> <br>
-  Location: <%= boat.location %>
+  Location: <%= boat.location %><br>
+
+  <%= image_tag boat.avatar.url%>
 
   <br>
+<div class="links">
+  ||<%= link_to ("Boat show page"), boat_path(boat.id) %>
+  ||<%= link_to ("Boat edit page"), edit_boat_path(boat.id) %>
+  ||<%= link_to 'Delete boat',  { action: :destroy, id: boat.id }, method: :delete %>||
+</div>
 
-  || <%= link_to ("Boat show page"), boat_path(boat.id) %> ||
-  <%= link_to 'Delete boat',  { action: :destroy, id: boat.id }, method: :delete %> ||
-  <hr>
+<hr>
 
 <% end %>
 </h4>

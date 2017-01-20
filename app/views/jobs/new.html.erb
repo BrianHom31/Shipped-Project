@@ -1,31 +1,42 @@
-<h1>new page for jobs</h1>
+<h1>Add A New Job</h1>
 
 
 <%= form_for Job.new do |f| %>
 
-  <%= f.label :name %>:<br>
-  <%= f.text_field :name %> <br>
+  <%= f.label "Name of Job" %>:
+  <%= f.text_field :name %> <br><br>
 
-  <%= f.label :description %><br>
-  <%= f.text_field :description %> <br>
+  <%= f.label :description %>:
+  <%= f.text_field :description %> <br><br>
 
 
-  <%= f.label "Origin location" %><br>
-  <%= f.select :origin, ["Bermuda", "Dakar", "Miami", "New York City", "Panama", "Trinidad"], prompt: :select %><br><br>
+  <%= f.label "Origin location" %>:
+  <%= f.select :origin, ["Bermuda", "India", "Miami", "New York City", "Panama", "Trinidad", "Hong Kong", "Thailand", "London", "Australia", "Fiji"], prompt: :select %><br><br>
 
-  <%= f.label "Destination location" %><br>
-  <%= f.select :destination, ["Bermuda", "Dakar", "Miami", "New York City", "Panama", "Trinidad"], prompt: :select %><br><br>
+  <%= f.label "Destination location" %>:
+  <%= f.select :destination, ["Bermuda", "India", "Miami", "New York City", "Panama", "Trinidad", "Hong Kong", "Thailand", "London", "Australia", "Fiji"], prompt: :select %><br><br>
 
-  <%= f.label :cost %><br>
-  <%= f.number_field :cost %> <br>
+  <%= f.label :cost %>:
+  <%= f.number_field :cost %> <br><br>
 
-  <%= f.label :amount_containers %><br>
+  <%= f.label "Amount of containers" %>:
   <%= f.number_field :amount_containers %> <br><br>
 
-  <%= f.label "Boat Name" %><br>
-  <%= collection_select :boats_jobs, :boat_id, Boat.all, :id, :name %><br><br>
+  <!-- <%= f.label "Boat Name" %>:
+  <%= collection_select :boats_jobs, :boat_id, Boat.all, :id, :name %><br><br> -->
 
 
+  <p><b>Select Boats For This Job:</b></p>
+  <% @boats_arr.each do |boat| %>
+    <%= check_box_tag "boat[boat_ids][]", boat.id %>
+    <%= f.label boat.name %>
+    <br>
+  <% end %>
+
+
+
+
+<br>
 
   <%= f.submit %>
 <% end %>

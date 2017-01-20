@@ -1,0 +1,77 @@
+body {
+  text-align: center;
+  // background: url('http://nickhallphotography.com/blog/wp-content/uploads/2013/06/Commercial_Shipping_Cargo_SF.jpg');
+
+  // background: url('http://www.gmtshipping.com/images/home-shipping.jpg');
+  // background: url('https://static01.nyt.com/images/2016/11/01/world/01JAPANSHIPPING-web1/01JAPANSHIPPING-web1-facebookJumbo.jpg');
+  // background: url('http://tehamashipping.com/web/wp-content/uploads/2016/04/shipping_HD.jpg');
+  // background: url('https://i.ytimg.com/vi/JSyRDwwBdlc/maxresdefault.jpg');
+  background: url('http://gateleyplc.com/wp-content/uploads/2015/11/gateley-shipping-services.jpg');
+  // background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: darkgray;
+  // font-family: 'Raleway', sans-serif;
+  // font-family: 'Rubik', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  // font-family: 'Josefin Sans', sans-serif;
+}
+
+.links {
+  padding: 20px;
+}
+
+
+.navbar {
+  background: skyblue;
+  // background: #285180;
+  // opacity: .8;
+}
+
+.navbar-brand {
+  color: #285180;
+  font-size: 35px;
+  font-weight: bold;
+  line-height: 30px;
+  border-radius: 100%;
+  background: sandybrown;
+  height: 60px;
+  width: 250px;
+}
+
+img {
+  width: 30%;
+  height: 20%;
+  margin: 0 auto;
+}
+// .company-photo {
+//   width: 10px;
+//   height: 10%;
+//   margin: 0 auto;
+// }
+//
+// .boat-photo {
+//   width: 20%;
+//   height: 10%;
+//   margin: 0 auto;
+// }
+
+.info {
+  background: #285180;
+  opacity: .9;
+  width: 700px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.links a {
+  list-style: none;
+  text-decoration: none;
+  padding: 30px;
+  color: black;
+}
+
+.links a:hover {
+  color: sandybrown;
+  font-weight: bold;
+}

@@ -1,20 +1,32 @@
 
 <h1>JOB INFO</h1>
-<hr>
-
-Name: <%= @job.name %><br>
+<h4>
+Job Name: <%= @job.name %><br>
 Description: <%= @job.description%><br>
 Origin: <%= @job.origin%><br>
 Destination: <%= @job.destination%><br>
 Cost: <%= @job.cost%><br>
 Containers Needed: <%= @job.amount_containers%><br>
-
+</h4>
 
 <hr>
 
-<h1>All Boats Assigned To This Job:</h1>
+<h3>All Boats Assigned To This Job:</h3>
+
+<h4><% @job.boats.each do |boat| %>
+Boat Name: <%= boat.name %><br>
+Location: <%= boat.location%><br>
+<%= image_tag boat.avatar.url%>
+
 <br>
-<% @job.boats.each do |boat| %>
-Name: <%= boat.name %>
+
+<div class="links">
+<%= link_to ("boat show page"), boat_path(boat.id) %> |
+<%= link_to ("boat edit page"), edit_boat_path(boat.id) %> |
+<%= link_to 'Delete boat',  { action: :destroy, id: boat.id }, method: :delete %>
 <hr>
+</div>
+
+
 <% end %>
+</h4>

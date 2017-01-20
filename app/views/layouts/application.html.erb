@@ -3,7 +3,8 @@
   <head>
     <title>ShippedProject</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
- 
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Quicksand|Raleway|Rubik" rel="stylesheet">
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,19 +13,48 @@
 
   <body>
 
-    <nav>
+      <nav class="navbar">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand logo" href="/">ShippMate</a>
+          </div>
+
+          <!-- <div class="links pull-left">
+            |<a href="/companies">Companies</a>|
+            <a href="/boats">Boats</a>|
+            <a href="/jobs">Jobs</a>|
+          </div> -->
+
+        <div class="links pull-left">
+          |<%= link_to ("Companies"), companies_path %>|
+          <%= link_to ("Boats"), boats_path %>|
+          <%= link_to ("Jobs"), jobs_path %>|
+        </div>
+
+
+        <div class="links pull-right">
         <% if  (company_signed_in?)%>
               <%= link_to "Sign out", { :action => "destroy",  :controller=> "devise/sessions"}, method: :delete %>
         <% else %>
               <%= link_to "Sign In", new_company_session_path %>
               <%= link_to "Sign Up", new_company_registration_path %>
         <% end %>
+      </div>
+      </div>
     </nav>
 
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <div class="info">
+
     <%= yield %>
+
+    </div>
+
+
+
+
   </body>
 </html>

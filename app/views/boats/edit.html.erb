@@ -1,4 +1,3 @@
-<h1>edit page for boats</h1>
 
 
 <h1>Edit boat</h1>
@@ -11,12 +10,13 @@
   <%= f.text_field :containers %> <br><br>
 
   <%= f.label "current location" %><br>
-  <%= f.select :location, ["Bermuda", "Dakar", "Miami", "New York City", "Panama", "Trinidad"], prompt: :select %><br><br>
+  <%= f.select :location, ["Bermuda", "India", "Miami", "New York City", "Panama", "Trinidad", "Hong Kong", "Thailand", "London", "Australia", "Fiji"], prompt: :select %><br><br>
 
-  <%= f.label :user %>: <br>
+  <%= f.label :company %>: <br>
   <%= f.collection_select :company_id, Company.all, :id, :name %>
 
   <br><br>
+  <center><%= f.file_field :avatar %><br>
 
   <%= f.submit %>
 <% end %>
