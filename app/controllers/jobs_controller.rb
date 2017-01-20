@@ -21,7 +21,6 @@ class JobsController < ApplicationController
     )
     # @new_job.boats << Boat.find(params[:boats_jobs][:boat_id])
 
-
     params[:boat][:boat_ids].each do |boat_id|
       @id = boat_id.to_i
       @new_job.boats << Boat.find(@id)

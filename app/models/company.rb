@@ -15,5 +15,7 @@ class Company < ApplicationRecord
     :content_type => /\Aimage\/.*\Z/
 
 
+  # validates_uniqueness_of :name
+  validates :name , uniqueness: {case_sesitive: false}
 
 end

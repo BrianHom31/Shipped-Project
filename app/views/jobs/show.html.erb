@@ -5,7 +5,7 @@ Job Name: <%= @job.name %><br>
 Description: <%= @job.description%><br>
 Origin: <%= @job.origin%><br>
 Destination: <%= @job.destination%><br>
-Cost: <%= @job.cost%><br>
+Cost: $<%= @job.cost%><br>
 Containers Needed: <%= @job.amount_containers%><br>
 </h4>
 
@@ -21,12 +21,37 @@ Location: <%= boat.location%><br>
 <br>
 
 <div class="links">
-<%= link_to ("boat show page"), boat_path(boat.id) %> |
-<%= link_to ("boat edit page"), edit_boat_path(boat.id) %> |
-<%= link_to 'Delete boat',  { action: :destroy, id: boat.id }, method: :delete %>
+||<%= link_to ("boat show page"), boat_path(boat.id) %>
+||<%= link_to ("boat edit page"), edit_boat_path(boat.id) %>
+||<%= link_to 'Delete boat',  { action: :destroy, id: boat.id }, method: :delete %>||
 <hr>
 </div>
-
-
 <% end %>
 </h4>
+
+
+
+<h3>All Boats Not Assigned To This Job:</h3>
+
+<% @job.boats.each do |boat| %>
+
+<%= boats_array = boats.company_id %>
+
+
+Boat Name: <%= boat.name %><br>
+Location: <%= boat.location%><br>
+<%= image_tag boat.avatar.url%>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- -->

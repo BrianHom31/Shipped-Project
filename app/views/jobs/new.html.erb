@@ -16,11 +16,11 @@
   <%= f.label "Destination location" %>:
   <%= f.select :destination, ["Bermuda", "India", "Miami", "New York City", "Panama", "Trinidad", "Hong Kong", "Thailand", "London", "Australia", "Fiji"], prompt: :select %><br><br>
 
-  <%= f.label :cost %>:
-  <%= f.number_field :cost %> <br><br>
+  <%= f.label "Cost: $" %>
+  <%= f.text_field :cost %> <br><br>
 
   <%= f.label "Amount of containers" %>:
-  <%= f.number_field :amount_containers %> <br><br>
+  <%= f.select :amount_containers, (1..100), prompt: :select %> <br><br>
 
   <!-- <%= f.label "Boat Name" %>:
   <%= collection_select :boats_jobs, :boat_id, Boat.all, :id, :name %><br><br> -->
