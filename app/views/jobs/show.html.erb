@@ -44,7 +44,7 @@ Location: <%= boat.location%><br><br>
 <% end %><br>
 
 
-<% @final_arr = @all_boat_ids-@boat_job_ids%>
+<% @final_arr = @all_boat_ids - @boat_job_ids %>
 
 <% @final_arr.each do |t|%>
   Boat Name: <%= Boat.find(t).name %><br>

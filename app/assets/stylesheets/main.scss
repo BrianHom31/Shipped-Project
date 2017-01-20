@@ -21,6 +21,12 @@ body {
   padding: 20px;
 }
 
+.homey {
+  padding: 30px;
+  margin: 10px;
+  line-height: 30px;
+}
+
 
 .navbar {
   background: skyblue;
@@ -74,4 +80,8 @@ img {
 .links a:hover {
   color: sandybrown;
   font-weight: bold;
+}
+
+h4 {
+  line-height: 25px;
 }

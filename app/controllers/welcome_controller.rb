@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
   def home
-    @message = "Welcome to The Company Boat App"
+    @message = "Welcome to ShippMate Shipping App"
   end
 
 
