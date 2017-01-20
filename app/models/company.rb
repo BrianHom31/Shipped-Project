@@ -5,6 +5,7 @@ class Company < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :boats
+  has_many :jobs, :through => :boats
 
 
   has_attached_file :avatar,

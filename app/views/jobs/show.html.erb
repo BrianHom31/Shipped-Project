@@ -13,9 +13,12 @@ Containers Needed: <%= @job.amount_containers%><br>
 
 <h3>All Boats Assigned To This Job:</h3>
 
+<% @boat_job_ids = [] %>
+
 <h4><% @job.boats.each do |boat| %>
+ <% @boat_job_ids << boat.id %><br>
 Boat Name: <%= boat.name %><br>
-Location: <%= boat.location%><br>
+Location: <%= boat.location%><br><br>
 <%= image_tag boat.avatar.url%>
 
 <br>
@@ -33,15 +36,22 @@ Location: <%= boat.location%><br>
 
 <h3>All Boats Not Assigned To This Job:</h3>
 
-<% @job.boats.each do |boat| %>
 
-<%= boats_array = boats.company_id %>
+<% @all_boat_ids = [] %>
+
+<% @boats.each do |boat| %>
+  <% @all_boat_ids << boat.id %>
+<% end %><br>
 
 
-Boat Name: <%= boat.name %><br>
-Location: <%= boat.location%><br>
-<%= image_tag boat.avatar.url%>
+<% @final_arr = @all_boat_ids-@boat_job_ids%>
+
+<% @final_arr.each do |t|%>
+  Boat Name: <%= Boat.find(t).name %><br>
+  Containers: <%= Boat.find(t).containers %><br>
+  Location: <%= Boat.find(t).location %><br><br><hr>
 <% end %>
+
 
 
 

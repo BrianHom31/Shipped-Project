@@ -44,11 +44,14 @@ class JobsController < ApplicationController
 
   end
 
+
   def show
     # @all_jobs = Job.all
     @job = Job.find(params[:id])
     @boats_assigned = @job.boats
+    @boats = Boat.all
   end
+
 
   def edit
     @message = "This is the form to edit an existing job."
