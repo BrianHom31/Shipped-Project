@@ -90,19 +90,19 @@ class JobsController < ApplicationController
 
 
 
-  def add_boat
-    @job = Job.find(params[:id])
-    @boat = Boat.find(params[:id])
-
-    @job.boats.push(@boat)
-  end
-
-
-  def remove_boat
-    @job = Job.find(params[:id])
-    @boat = Boat.find(params[:id])
-
-    @job.boats.delete(@boat)
-  end
+  # def add_boat
+  #   @job = Job.find(params[:id])
+  #   @boat = Boat.find(params[:id])
+  #
+  #   @job.boats.push(@boat)
+  # end
+  #
+  #
+  # def remove_boat
+  #   @job = Job.find(params[:id])
+  #   @boat = Boat.find(params[:id])
+  #
+  #   @job.boats.delete(@boat)
+  # end
 
 end
